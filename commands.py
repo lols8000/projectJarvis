@@ -3,10 +3,10 @@ from comandShell import *
 import datetime
 import wikipedia
 import pywhatkit
-#teste
+
 def comando_voz_usuario():
-    # comando = executa_comando()
-    comando = 'toque guns n roses, november rain'
+    comando = executa_comando()
+    #comando = 'toque guns n roses, november rain'
 
     if 'horas' in comando:
         hora = datetime.datetime.now().strftime('%H:%M')
