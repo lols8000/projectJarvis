@@ -1,27 +1,24 @@
 from voiceCapture import *
-from comandShell import *
-from info import *
-import datetime
-import wikipedia
-import pywhatkit
+from CommandsList.execute_o_comando import *
+from CommandsList.me_diga_sobre import *
+from CommandsList.horas import *
+from CommandsList.procure_por import *
+from CommandsList.toque import *
+
 
 def executa_comando(comando):
-
     if 'horas' in comando:
-        hora = datetime.datetime.now().strftime('%H:%M')
-        maquina.say('Agora são' + hora)
+        maquina.say('Agora são' + horas())
         maquina.runAndWait()
 
     elif 'procure por' in comando:
         procurar = comando.replace('procure por', '')
-        wikipedia.set_lang('pt')
-        resultado = wikipedia.summary(procurar, 2)
-        maquina.say(resultado)
+        maquina.say(procurar_wikipedia(procurar))
         maquina.runAndWait()
 
     elif 'toque' in comando:
         musica = comando.replace('toque', '')
-        pywhatkit.playonyt(musica)
+        procurar_musica(musica)
         maquina.say('Tocando musica')
         maquina.runAndWait()
 
@@ -32,7 +29,7 @@ def executa_comando(comando):
         maquina.say('executando o comnando desejado')
         maquina.runAndWait()
 
-    elif'me diga sobre' in comando:
+    elif 'me diga sobre' in comando:
         descricao_comando = comando.replace('me diga sobre', '')
         comando = informacao(descricao_comando)
         maquina.say(comando)
@@ -41,3 +38,6 @@ def executa_comando(comando):
     else:
         maquina.say('Não entendi!')
         maquina.runAndWait()
+
+
+executa_comando('que horas são')
