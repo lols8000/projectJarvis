@@ -1,12 +1,11 @@
 from voiceCapture import *
 from comandShell import *
+from info import *
 import datetime
 import wikipedia
 import pywhatkit
 
-def comando_voz_usuario():
-    comando = executa_comando()
-    #comando = 'toque guns n roses, november rain'
+def executa_comando(comando):
 
     if 'horas' in comando:
         hora = datetime.datetime.now().strftime('%H:%M')
@@ -31,6 +30,12 @@ def comando_voz_usuario():
         comando = gerar_comandoShell(descricao_comando)
         execute_powershell_command(comando)
         maquina.say('executando o comnando desejado')
+        maquina.runAndWait()
+
+    elif'me diga sobre' in comando:
+        descricao_comando = comando.replace('me diga sobre', '')
+        comando = informacao(descricao_comando)
+        maquina.say(comando)
         maquina.runAndWait()
 
     else:
