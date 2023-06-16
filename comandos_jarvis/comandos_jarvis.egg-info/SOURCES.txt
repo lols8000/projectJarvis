@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+VERSION
+requirements.txt
+setup.py
+comandos_jarvis/__init__.py
+comandos_jarvis/__main__.py
+comandos_jarvis/bot.py
+comandos_jarvis.egg-info/PKG-INFO
+comandos_jarvis.egg-info/SOURCES.txt
+comandos_jarvis.egg-info/dependency_links.txt
+comandos_jarvis.egg-info/requires.txt
+comandos_jarvis.egg-info/top_level.txt
+comandos_jarvis/resources/start.png
